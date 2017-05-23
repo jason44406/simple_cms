@@ -1,0 +1,56 @@
+<h1>Hello World from hello</h1>
+<!-- Calculates but does not output -->
+<% 2 + 2 %>
+
+<!-- Calculates and DOES output with the '=' -->
+<%= 1 + 1 %>
+
+<br><br>
+
+<% target ="world" %>
+<%= "Hello #{target}" %>
+
+<br><br>
+
+<!-- This outputs 0,1,2 to the console
+     and "3" to the browser -->
+<%=
+3.times do |n|
+  puts n
+end
+%>
+
+<br><br>
+
+<!-- This instead outputs the expected "3" to the browser -->
+<% 3.times do |n| %>
+  <%= n %> <br> <!-- added a single break between each.... -->
+<% end %>
+
+<br>
+
+<% @array.each do |n| %>
+  <%= n %>
+<% end %>
+
+<br><br>
+
+<!-- just some plain html -->
+<a href="/demo/index">Index Page 1</a>
+
+<br><br>
+
+<%= link_to('Index Page 2', {:action => 'index'}) %>
+
+<br><br>
+
+ID: <%= @id %> <br>
+ID: <%= params[:id] %> <br>
+Page: <%= @page %> <br>
+<!-- params are always strings.  Ruby does not attempt to cast -->
+Next page: <%= @page.to_i + 1 %>
+
+<br>
+
+<p><i>Demo#hello</i></p>
+<p><i>Find me in app/views/demo/hello.html.erb</i></p>
