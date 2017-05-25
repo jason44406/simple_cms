@@ -31,3 +31,4 @@ Change log:
 - I am adding this to make sure I get all the changes up to GITHUB correctly.
 - 2017/05/24 - Changed README directly on GITHUB in master.
 - 2017/05/24 - Pulled master from GITHUB, merged local master and test.  Working in branch test
+- 2017/05/25 - Changed README directly on GITHUB in master.
