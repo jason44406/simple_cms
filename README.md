@@ -36,3 +36,4 @@ Change log:
               - git checkout test (to switch to test branch)
               - git merge master test (to merge the changed master to test)
               - Now remote/master and local/master and local/test should be identical.  (Except for this README, of course.)
+- 2017/05/26 - git push to sync to GITHUB
