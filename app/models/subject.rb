@@ -1,5 +1,11 @@
 class Subject < ApplicationRecord
 
+  # tell ActiveRecord to make a relationship btwn Subject and page
+  # has_one :page
+
+  # tell ActiveRecord to make a one to many relationship
+  has_many :pages
+
   scope :visible, lambda { where(:visible => true) }
   scope :invisible, lambda { where(:visible => false) }
   scope :sorted, -> { order("position ASC") }
