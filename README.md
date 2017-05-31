@@ -42,3 +42,4 @@ Change log:
               - Had to roll back 2 versions to correct a misspelling of "positions" in the pages field.
               - Admin_Users: - The file was named adminuser.  I think it should be admin_user based on the migration.  I think I missed a step earlier.  So here's my note to remember what I did in case it comes back to bite me later.
               - In the Sections class, I had to make the belongs_to optional.  The video don't show this, so it needs to be changed back.
+              - git push to GITHUB created pull request.    
