@@ -37,3 +37,4 @@ Change log:
               - git merge master test (to merge the changed master to test)
               - Now remote/master and local/master and local/test should be identical.  (Except for this README, of course.)
 - 2017/05/26 - git push to sync to GITHUB
+- 2017/05/30 - After the long weekend, back to work.  Changed README on GITHUB directly in master branch so I can pull it                  down.
