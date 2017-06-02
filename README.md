@@ -44,3 +44,4 @@ Change log:
               - In the Sections class, I had to make the belongs_to optional.  The video don't show this, so it needs to be changed back.
               - git push to GITHUB created pull request.   
 - 2017/06/02 (GITHUB) - Changed README.  Begin Chapt 7.
+- 2017/06/02 (local) - Pulled to master, merged with test.  Completed Chapt 7 and the frist 3 sections of chapt 8.  Push to GITHUB.

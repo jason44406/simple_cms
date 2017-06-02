@@ -3,6 +3,22 @@ Rails.application.routes.draw do
   # This is the action for the root route
   root 'demo#index'
 
+# These routes were provided by default from the rails generate command.
+# Using resourceful routes instead.
+#  get 'subjects/index'
+#  get 'subjects/show'
+#  get 'subjects/new'
+#  get 'subjects/edit'
+#  get 'subjects/delete'
+
+  resources :subjects do
+
+    member do
+      get :delete
+    end
+
+  end
+
   # simple match routes
   # match "demo/index", :to => "demo#index", :via => :get
   # this is the longer way to write the same.
