@@ -1,0 +1,39 @@
+<!-- Maybe comment out the H1 line later... -->
+<h1>Subjects#index</h1>
+<!-- label controller and action-->
+<div class="subjects index">
+  <h2>Subjects</h2>
+
+  <%= link_to("Add New Subject", '#', :class => 'action new') %>
+
+  <table class="listing" summary="Subject list">
+    <!-- This assigns the header row -->
+    <tr class="header">
+      <th>#</th>
+      <th>Subject</th>
+      <th>Visible</th>
+      <th>Pages</th>
+      <th>Actions</th>
+    </tr>
+    <!-- This each method will will go through every element in the array and assign it to the local block value |subject|. -->
+    <% @subjects.each do |subject| %>
+    <tr> <!-- Table row -->
+      <td><%= subject.position %></td> <!-- Table data -->
+      <td><%= subject.name %></td>
+      <!-- Ternary operator.  Short hand for if/else statement. -->
+      <!-- first arg evals true / false.  After the ? is the value if true : value if false -->
+      <td class="center"><%= subject.visible ? 'Yes' : 'Nope' %></td>
+      <td class="center"><%= subject.pages.size %></td>
+      <td class="actions">
+        <%= link_to("Show1", 'subjects/#{subject.id}', :class => 'action show') %>
+        <%= link_to("Show2", {:controller => 'subjects', :action => 'show', :id => subject.id}, :class => 'action show') %>
+        <%= link_to("Show", subject_path(subject), :class => 'action show') %>
+        <%= link_to("Edit", '#', :class => 'action edit') %>
+        <%= link_to("Delete", '#', :class => 'action delete') %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>
+
+<p><i>Find me in app/views/subjects/index.html.erb</i></p>
