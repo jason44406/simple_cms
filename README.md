@@ -46,3 +46,4 @@ Change log:
 - 2017/06/02 (GITHUB) - Changed README.  Begin Chap 7.
 - 2017/06/02 (local) - Pulled to master, merged with test.  Completed Chap 7 and the first 3 sections of chapt 8.  Push to GITHUB.
 - 2017/06/05 (GITHUB) - Changed README.  Corrected some spelling errors on README.  Continue Chap 8.
+- 2017/06/05 (local) - Pulled to master, merged with test.  Completed chapter 8.  Push to GITHUB prior to doing the Chap 8 challenge. 
