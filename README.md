@@ -43,5 +43,6 @@ Change log:
               - Admin_Users: - The file was named adminuser.  I think it should be admin_user based on the migration.  I think I missed a step earlier.  So here's my note to remember what I did in case it comes back to bite me later.
               - In the Sections class, I had to make the belongs_to optional.  The video don't show this, so it needs to be changed back.
               - git push to GITHUB created pull request.   
-- 2017/06/02 (GITHUB) - Changed README.  Begin Chapt 7.
-- 2017/06/02 (local) - Pulled to master, merged with test.  Completed Chapt 7 and the frist 3 sections of chapt 8.  Push to GITHUB.
+- 2017/06/02 (GITHUB) - Changed README.  Begin Chap 7.
+- 2017/06/02 (local) - Pulled to master, merged with test.  Completed Chap 7 and the first 3 sections of chapt 8.  Push to GITHUB.
+- 2017/06/05 (GITHUB) - Changed README.  Corrected some spelling errors on README.  Continue Chap 8.
