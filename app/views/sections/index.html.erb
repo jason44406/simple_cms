@@ -1,0 +1,44 @@
+
+<% if !flash[:notice].blank? %>
+  <div class="notice">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
+<!-- label controller and action-->
+<div class="sections index">
+  <h2>Sections</h2>
+
+<!--  <%= link_to("Add New Page", 'page/new', :class => 'action new') %> -->
+  <%= link_to("Add New Section", new_section_path, :class => 'action new') %>
+
+  <table class="listing" summary="Section list">
+    <!-- This assigns the header row -->
+    <tr class="header">
+      <th>#</th>
+      <th>Section</th>
+      <th>Type</th>
+      <th>Visible</th>
+      <th>Page</th>
+      <th>Actions</th>
+    </tr>
+    <!-- This each method will will go through every element in the array and assign it to the local block value |page|. -->
+    <% @sections.each do |section| %>
+    <tr> <!-- Table row -->
+      <td><%= section.position %></td> <!-- Table data -->
+      <td><%= section.name %></td>
+      <td><%= section.content_type %></td>
+      <td class="center"><%= section.visible ? 'Yes' : 'Nope' %></td>
+      <td><%= section.page_id %></td>
+      <td class="actions">
+        <%= link_to("Show", section_path(section), :class => 'action show') %>
+        <%= link_to("Edit", edit_section_path(section), :class => 'action edit') %>
+        <%= link_to("Delete", delete_section_path(section), :class => 'action delete') %>
+      </td>
+    </tr>
+
+    <% end %>
+  </table>
+</div>
+
+<p><i>Find me in app/views/sections/index.html.erb</i></p>
