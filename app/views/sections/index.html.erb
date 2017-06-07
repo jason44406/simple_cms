@@ -1,10 +1,4 @@
 
-<% if !flash[:notice].blank? %>
-  <div class="notice">
-    <%= flash[:notice] %>
-  </div>
-<% end %>
-
 <!-- label controller and action-->
 <div class="sections index">
   <h2>Sections</h2>
@@ -19,7 +13,7 @@
       <th>Section</th>
       <th>Type</th>
       <th>Visible</th>
-      <th>Page</th>
+      <th>Page ID</th>
       <th>Actions</th>
     </tr>
     <!-- This each method will will go through every element in the array and assign it to the local block value |page|. -->
@@ -28,8 +22,8 @@
       <td><%= section.position %></td> <!-- Table data -->
       <td><%= section.name %></td>
       <td><%= section.content_type %></td>
-      <td class="center"><%= section.visible ? 'Yes' : 'Nope' %></td>
-      <td><%= section.page_id %></td>
+      <td class="center"><%= status_tag(section.visible) %></td>
+      <td class="center"><%= section.page_id %></td>
       <td class="actions">
         <%= link_to("Show", section_path(section), :class => 'action show') %>
         <%= link_to("Edit", edit_section_path(section), :class => 'action edit') %>

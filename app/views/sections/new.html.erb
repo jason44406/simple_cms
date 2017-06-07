@@ -1,9 +1,4 @@
 
-<% if !flash[:error].blank? %>
-  <div class="error">
-    <strong><%= flash[:error] %></strong>
-  </div>
-<% end %>
 
 <%= link_to("<< Back to List", sections_path, :class => 'back-link') %>
 
@@ -13,6 +8,7 @@
 
   <%= form_for(@section) do |f| %>
 
+<!-- Moved to _form partial....
     <table summary="Section form fields">
       <tr>
         <th>Name</th>
@@ -34,7 +30,13 @@
         <th>Page</th>
         <td><%= f.text_field(:page_id) %></td>
       </tr>
-    </table>
+      <tr>
+        <th>Content</th>
+        <td><%= f.text_field(:content) %></td>
+      </tr>
+    </table> -->
+
+    <%= render(:partial => 'form', :locals =>{:f => f}) %>
 
     <div class="form-buttons">
       <%= f.submit("Create Section") %>

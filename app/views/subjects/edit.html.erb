@@ -7,6 +7,7 @@
   <h2>Update Subject</h2>
   <%= form_for(@subject) do |f| %>
 
+<!-- Moved to _form partial....
     <table summary="Subject form fields">
       <tr>
         <th>Name</th>
@@ -20,13 +21,17 @@
         <th>Visible</th>
         <td><%= f.text_field(:visible) %></td>
       </tr>
-    </table>
+    </table>    -->
+
+    <!-- because it knows this is a partial, the underscore is not needed in the name of the view to render.  Have to pass the local varible f as a symbol when it is called. -->
+    <%= render(:partial => 'form', :locals =>{:f => f}) %>
 
     <div class="form-buttons">
       <%= f.submit("Update Subject") %>
     </div>
 
   <% end %>
+
 </div>
 
 <p><i>Find me in app/views/subjects/edit.html.erb</i></p>
