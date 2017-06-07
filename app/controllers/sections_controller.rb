@@ -1,5 +1,7 @@
 class SectionsController < ApplicationController
 
+  layout 'admin'
+
   def index
     @sections = Section.sorted
   end
@@ -30,7 +32,7 @@ class SectionsController < ApplicationController
   def update
     @section = Section.find(params[:id])
     if @section.update_attributes(section_params)
-      flash[:notice] = "section '#{@section.name}' saved successfully!"
+      flash[:notice] = "section '#{@section.name}' updated successfully!"
       redirect_to(section_path(@section))
     else
       flash[:error] = "Section not saved!"

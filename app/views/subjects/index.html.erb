@@ -1,12 +1,5 @@
-<!-- Maybe comment out the H1 line later... -->
-<!-- <h1>Subjects#index</h1> -->
 
-<!-- the ! before flash means opposite of.  This is saying if not blank -->
-<% if !flash[:notice].blank? %>
-  <div class="notice">
-    <%= flash[:notice] %>
-  </div>
-<% end %>
+<% @page_title ="All Subjects" %>
 
 <!-- label controller and action-->
 <div class="subjects index">
@@ -31,7 +24,9 @@
       <td><%= subject.name %></td>
       <!-- Ternary operator.  Short hand for if/else statement. -->
       <!-- first arg evals true / false.  After the ? is the value if true : value if false -->
-      <td class="center"><%= subject.visible ? 'Yes' : 'Nope' %></td>
+      <!-- <td class="center"><%= subject.visible ? 'Yes' : 'Nope' %></td> -->
+      <!-- Replaced with status_tag -->
+      <td class="center"><%= status_tag(subject.visible) %></td>
       <td class="center"><%= subject.pages.size %></td>
       <td class="actions">
         <%= link_to("Show", subject_path(subject), :class => 'action show') %>

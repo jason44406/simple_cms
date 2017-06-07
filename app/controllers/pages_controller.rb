@@ -1,4 +1,7 @@
 class PagesController < ApplicationController
+
+  layout 'admin'
+
   def index
     @pages = Page.sorted
   end
@@ -29,7 +32,7 @@ class PagesController < ApplicationController
   def update
     @page = Page.find(params[:id])
     if @page.update_attributes(page_params)
-      flash[:notice] = "Page '#{@page.name}' saved successfully!"
+      flash[:notice] = "Page '#{@page.name}' updated successfully!"
       redirect_to(page_path(@page))
     else
       flash[:error] = "Page not saved!"

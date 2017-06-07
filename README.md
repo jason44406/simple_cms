@@ -50,3 +50,5 @@ Change log:
 - 2017/06/05 (GITHUB) - Pull request; merged to master.  
 - 2017/06/05 (local) - Pulled to master, merged to test.  Created new branch for Challenge; aptly named Chap_8_Challenge.  Push up to GITHUB.
 - 2017/06/05 (GITHUB) - Pull request, merged to master.
+- 2017/06/06 (local) - Pulled to master, merged to test.  Reviewed Chap 8 Challenge.
+- 2017/06/07 (local) - Completed work on Chap 9. push up to GITHUB.
