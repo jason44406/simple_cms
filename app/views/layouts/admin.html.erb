@@ -3,21 +3,28 @@
   <head>
     <!-- double pipes mean 'if blank' -->
     <title>Simple CMS: <%= @page_title || "Admin Area" %></title>
+    <!-- Replaced with the style sheet lin tag
     <style>
       span.status { display: block; width: 10px; height: 10px; margin: 0.25em auto; padding: 0; border: 1px solid #000000; }
       span.status.true { background: green; color: green; }
       span.status.false { background: red; color: red; }
-    </style>
+    </style> -->
+    <%= stylesheet_link_tag('admin', :media =>'all') %>
   </head>
 
   <body>
 
-  <!-- the ! before flash means opposite of.  This is saying if not blank -->
-  <% if !flash[:notice].blank? %>
-    <div class="notice">
-      <%= flash[:notice] %>
+    <div id="header">
+      <h1>Simple CMS Admin</h1>
     </div>
-  <% end %>
+
+    <div id="main">
+  <!-- the ! before flash means opposite of.  This is saying if not blank -->
+      <% if !flash[:notice].blank? %>
+        <div class="notice">
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
 
   <% if !flash[:error].blank? %>
     <div class="error">
@@ -25,15 +32,19 @@
     </div>
   <% end %>
 
-  <!-- before yield -->
+    <div id="content">
+    <!-- before yield -->
 
-    <%= yield %>
+      <%= yield %>
 
-  <!-- after yield -->
+    <!-- after yield -->
+    </div>
 
-  <%= link_to("Subject Index", subjects_path) %> ~~
-  <%= link_to("Pages Index", pages_path) %> ~~
-  <%= link_to("Sections Index", sections_path) %>
+    <div id="footer">
+      <%= link_to("Subject Index", subjects_path) %> ~~
+      <%= link_to("Pages Index", pages_path) %> ~~
+      <%= link_to("Sections Index", sections_path) %>
+    </div>
 
   </body>
 </html>
