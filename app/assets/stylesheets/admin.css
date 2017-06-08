@@ -15,6 +15,7 @@
  * require_tree .
 * Load in the primary.css.scss file.
 *= require primary
+*= require admin_additions
 * Load in all the styles that are in this file:
  *= require_self
  */
