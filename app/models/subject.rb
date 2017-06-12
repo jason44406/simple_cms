@@ -16,4 +16,6 @@ class Subject < ApplicationRecord
   # Then the where statement ends up looking like: WHERE (name LIKE '%Initial%')
   scope :search, lambda { |query| where(["name LIKE ?", "%#{query}%"]) }
 
+  validates_presence_of :name
+
 end
