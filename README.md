@@ -54,4 +54,5 @@ Change log:
 - 2017/06/07 (local) - Completed work on Chap 9. push up to GITHUB.
 - 2017/06/08 (local) - Pulled down, merged to test.  Completed Chapter 10.  Push up to GITHUB.  
 - 2017/06/12 (local) - Pulled down from GITHUB, merged to test.  Completed Chap 11.  Push up to GITHUB.
-- 2017/06/12 (GITHUB - Created pull request, merged to master.  Deleted branch.
+- 2017/06/12 (GITHUB) - Created pull request, merged to master.  Deleted branch.
+- 2017/06/13 (local) - Pulled down from GITHUB, merged with test.  Completed Chapt 12.  Push up to GITHUB.
