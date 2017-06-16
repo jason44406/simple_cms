@@ -2,7 +2,10 @@ class SubjectsController < ApplicationController
 
   layout 'admin'
 
+  before_action :set_subject_count, :only => [:new, :create, :edit, :update]
+
   def index
+  #  logger.debug("***** Testing the logger from the Subject index. *****")
     @subjects = Subject.sorted
   end
 
@@ -12,7 +15,7 @@ class SubjectsController < ApplicationController
 
   def new
     @subject = Subject.new({:name => 'Default'})
-    @subject_count = Subject.count + 1
+  #  @subject_count = Subject.count + 1
   end
 
   def create
@@ -28,14 +31,14 @@ class SubjectsController < ApplicationController
       # If the save fails, redisplay the form so the user can correct
       # Render just renders the template with fields populated.
       flash[:error] = "Subject not created!"
-      @subject_count = Subject.count + 1
+    #  @subject_count = Subject.count + 1
       render('new')
     end
   end
 
   def edit
     @subject = Subject.find(params[:id])
-    @subject_count = Subject.count
+  #  @subject_count = Subject.count
   end
 
   def update
@@ -51,7 +54,7 @@ class SubjectsController < ApplicationController
       # If the save fails, redisplay the form so the user can correct
       # Render just renders the template with fields populated.
       flash[:error] = "Subject not saved!"
-      @subject_count = Subject.count
+    #  @subject_count = Subject.count
       render('edit')
     end
   end
@@ -75,6 +78,13 @@ class SubjectsController < ApplicationController
 
   def subject_params
     params.required(:subject).permit(:name, :position, :visible, :created_at)
+  end
+
+  def set_subject_count
+    @subject_count = Subject.count
+    if params[:action] == 'new' || params[:action] =='create'
+      @subject_count = Subject.count + 1
+    end
   end
 
 end
