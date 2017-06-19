@@ -59,3 +59,4 @@ Change log:
 - 2017/06/14 (local) - Pulled down from GITHUB.  config/initializers/session_store.rb was not present by default.  I added it. Began chapter 13
 - 2017/06/16 (local) - Continue Chapt 13.  Could not see the development.log file.  It was defined in the .gitignore, so I commented that line out.  That made the file visible, but I don't want to add the logs to GITHUB.  Instead I changed the option in Atom>Prefs>Tree-view and un-checked the hide VCS ignored files.  Push up to GITHUB.
 - 2017/06/16 (GITHUB) - Created pull request and merged branches.
+- 2017/06/19 (local) - Pulled down from GITHUB.  Changing the strategy on naming the branches, now that I'm almost finished.  Using the chapter numbers instead of 'test' everytime.  Will continue this way in the future.  Completed Chap 14.  Push up to GITHUB
