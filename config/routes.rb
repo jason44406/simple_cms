@@ -3,6 +3,14 @@ Rails.application.routes.draw do
   # This is the action for the root route
   root 'demo#index'
 
+  # Simple routes since there are no models, DB, etc. for this.
+  get 'admin', :to => 'access#menu'
+  get 'access/menu'   #index
+  get 'access/login'  #new
+  post 'access/attempt_login'
+  get 'access/logout'
+
+
 # ~~~> Subjects Routes <~~~
 # These routes were provided by default from the rails generate command.
 # Using resourceful routes instead.
