@@ -50,14 +50,30 @@ Rails.application.routes.draw do
 #  get 'sections/edit'
 #  get 'sections/delete'
 
-resources :sections do
+  resources :sections do
 
-  member do
-    get :delete
+    member do
+      get :delete
+    end
+
   end
 
-end
+# ~~~~> Admin User Routes <~~~~
+#  get 'admin_user/index'
+#  get 'admin_user/new'
+#  get 'admin_user/create'
+#  get 'admin_user/edit'
+#  get 'admin_user/update'
+#  get 'admin_user/delete'
+#  get 'admin_user/destroy'
 
+  resources :admin_user, :except => 'show' do
+
+    member do
+      get :delete
+    end
+
+  end
 
   # simple match routes
   # match "demo/index", :to => "demo#index", :via => :get
