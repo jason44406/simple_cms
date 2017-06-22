@@ -62,3 +62,4 @@ Change log:
 - 2017/06/19 (local) - Pulled down from GITHUB.  Changing the strategy on naming the branches, now that I'm almost finished.  Using the chapter numbers instead of 'test' everytime.  Will continue this way in the future.  Completed Chap 14.  Push up to GITHUB
 - 2017/06/20 (GITHUB) - Took a break and completed a different class on the subject of GITHUB.  
 - 2017/06/20 (local) - Pulled down from GITHUB into local master.  Created new branch Chap15.  Working on first challenge.  Created controller and modified routes.  Modified Model.  Going to commit and push to GITHUB at this point.  
+- 2017/06/21 (local) - Didn't pull down.  Going to experiment with this a little when there are more than one commits on a single branch.  Created the admin user index / new / edit / delete.  All tested and working.  Push up to GITHUB, then continue with the rest of Chap 15.

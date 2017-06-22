@@ -1,2 +1,41 @@
-<h1>AdminUser#index</h1>
+<% @page_title ="All Admin Users" %>
+
+<%= link_to("<< Back to Menu", admin_path, :class => 'back-link') %>
+<!-- label controller and action-->
+<div class="adminusers index">
+  <h2>Admin Users</h2>
+
+  <%= image_tag('plus_sign.png', :size => '11x11', :alt => '+') %>
+
+<!--  <%= link_to("Add New Subject", 'subject/new', :class => 'action new') %> -->
+  <%= link_to("Add New Admin User", new_admin_user_path, :class => 'action new') %>
+
+  <table class="listing" summary="AdmimUser list">
+    <!-- This assigns the header row -->
+    <tr class="header">
+      <th>#</th>
+      <th>Last Name</th>
+      <th>First name</th>
+      <th>Name</th>
+      <th>Username</th>
+      <th>Email Address</th>
+    </tr>
+
+    <% @adminusers.each do |adminuser| %>
+    <tr> <!-- Table row -->
+      <td><%= adminuser.id %></td> <!-- Table data -->
+      <td><%= adminuser.last_name %></td>
+      <td><%= adminuser.first_name %></td>
+      <td><%= adminuser.name %></td>
+      <td><%= adminuser.username %></td>
+      <td><%= mail_to(adminuser.email) %></td>
+      <td class="actions">
+        <%= link_to("Edit", edit_admin_user_path(adminuser), :class => 'action edit') %>
+        <%= link_to("Delete", delete_admin_user_path(adminuser), :class => 'action delete') %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>
+
 <p>Find me in app/views/admin_user/index.html.erb</p>

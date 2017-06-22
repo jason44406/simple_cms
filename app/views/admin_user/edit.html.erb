@@ -1,2 +1,18 @@
-<h1>AdminUser#edit</h1>
-<p>Find me in app/views/admin_user/edit.html.erb</p>
+<% @page_title ="Edit Admin User" %>
+
+<%= link_to("<< Back to List", admin_user_index_path, :class => 'back-link') %>
+
+<div class="adminusers edit">
+
+  <h2>Update Admin User</h2>
+  <%= form_for(@adminuser) do |f| %>
+
+    <%= render(:partial => 'form', :locals =>{:f => f}) %>
+
+    <div class="form-buttons">
+      <%= f.submit("Update User") %>
+    </div>
+
+  <% end %>
+
+</div>

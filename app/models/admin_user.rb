@@ -41,6 +41,8 @@ class AdminUser < ApplicationRecord
 
   def name
     "#{first_name} #{last_name}"
+    # Or: first_name + ' ' + last_name
+    # Or: [first_name, last_name].join(' ')
   end
 
   private
