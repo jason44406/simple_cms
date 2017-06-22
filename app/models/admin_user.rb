@@ -5,7 +5,7 @@ class AdminUser < ApplicationRecord
   # self.table_name = "admin_users"
   # .... Instead, we just changed the name of the class and file.
 
-  
+
   has_secure_password
 
   has_and_belongs_to_many :pages
@@ -14,6 +14,8 @@ class AdminUser < ApplicationRecord
 
   EMAIL_REGEX = /\A[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}\Z/i
   FORBIDDEN_USERNAMES = ['littlebopeep', 'humptydumpty', 'marymary']
+
+  scope :sorted, -> { order("last_name ASC", "first_name ASC") }
 
 # long form validations, replaced with sexy validations below.
 #  validates_presence_of :first_name
@@ -36,6 +38,13 @@ class AdminUser < ApplicationRecord
 
   validate :username_is_allowed
   validate :no_new_users_on_tuesday, :on => :create
+
+  def name
+    "#{first_name} #{last_name}"
+    # Or: first_name + ' ' + last_name
+    # Or: [first_name, last_name].join(' ')
+  end
+
   private
 
   def username_is_allowed
@@ -49,5 +58,4 @@ class AdminUser < ApplicationRecord
       errors.add(:base, "No new users on Tuesdays.")
     end
   end
-
 end

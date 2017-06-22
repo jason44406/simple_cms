@@ -1,0 +1,19 @@
+<% @page_title ="Create Admin User" %>
+
+<%= link_to("<< Back to List", admin_user_index_path, :class => 'back-link') %>
+
+<div class="adminusers new">
+
+  <h2>Create Admin User</h2>
+  <!-- Had to specify the url.  It wanted to use 'admin_users_path' with the helper, probably because I specified admin_users when I created the controller. -->
+  <%= form_for(@adminuser, :url => admin_user_index_path) do |f| %>
+
+    <%= render(:partial => 'form', :locals =>{:f => f}) %>
+
+    <div class="form-buttons">
+      <%= f.submit("Create User") %>
+    </div>
+
+  <% end %>
+
+</div>
