@@ -1,10 +1,13 @@
+<% @page_title = "All Sections" %>
+
+<%= link_to("<<Back to Pages", pages_path(:subject_id => @page.subject_id), :class => 'back-link') %>
 
 <!-- label controller and action-->
 <div class="sections index">
   <h2>Sections</h2>
 
 <!--  <%= link_to("Add New Page", 'page/new', :class => 'action new') %> -->
-  <%= link_to("Add New Section", new_section_path, :class => 'action new') %>
+  <%= link_to("Add New Section", new_section_path(:page_id => @page.id), :class => 'action new') %>
 
   <table class="listing" summary="Section list">
     <!-- This assigns the header row -->
@@ -13,7 +16,7 @@
       <th>Section</th>
       <th>Type</th>
       <th>Visible</th>
-      <th>Page ID</th>
+<!--  <th>Page ID</th>  -->
       <th>Actions</th>
     </tr>
     <!-- This each method will will go through every element in the array and assign it to the local block value |page|. -->
@@ -23,11 +26,11 @@
       <td><%= section.name %></td>
       <td><%= section.content_type %></td>
       <td class="center"><%= status_tag(section.visible) %></td>
-      <td class="center"><%= section.page_id %></td>
+<!--  <td class="center">< link_to("#{section.page_id}", {:controller => 'pages', :action => 'show', :id => section.page_id}, :class => 'action show') %> </td> -->
       <td class="actions">
-        <%= link_to("Show", section_path(section), :class => 'action show') %>
-        <%= link_to("Edit", edit_section_path(section), :class => 'action edit') %>
-        <%= link_to("Delete", delete_section_path(section), :class => 'action delete') %>
+        <%= link_to("Show", section_path(section, :page_id => @page.id), :class => 'action show') %>
+        <%= link_to("Edit", edit_section_path(section, :page_id => @page.id), :class => 'action edit') %>
+        <%= link_to("Delete", delete_section_path(section, :page_id => @page.id), :class => 'action delete') %>
       </td>
     </tr>
 

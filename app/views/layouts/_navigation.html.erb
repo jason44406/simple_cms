@@ -1,0 +1,17 @@
+<!-- The next line is to allow for a blank subjects... if blank, it will be an empty array to prevent it from blowing up. -->
+<% subjects ||= [] %>
+<ul>
+<% subjects.each do |subject| %>
+    <li>
+      <%= subject.name %>
+      <ul>
+      <% subject.pages.visible.sorted.each do |page| %>
+        <!-- link_to_unless_current does pretty much what you think it does - prevents a tags if the link is the same as the current page. -->
+        <!--   link_to_unless_current(page.name, :action => 'show', :id => page.permalink) %></li> -->
+        <!-- Change this to a rails helper after the route was defined in routes.rb -->
+        <li><%= link_to_unless_current(page.name, public_show_path(page.permalink)) %></li>
+      <% end %>
+      </ul>
+    </li>
+   <% end %>
+  </ul>
