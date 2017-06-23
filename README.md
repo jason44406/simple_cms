@@ -63,3 +63,5 @@ Change log:
 - 2017/06/20 (GITHUB) - Took a break and completed a different class on the subject of GITHUB.  
 - 2017/06/20 (local) - Pulled down from GITHUB into local master.  Created new branch Chap15.  Working on first challenge.  Created controller and modified routes.  Modified Model.  Going to commit and push to GITHUB at this point.  
 - 2017/06/21 (local) - Didn't pull down.  Going to experiment with this a little when there are more than one commits on a single branch.  Created the admin user index / new / edit / delete.  All tested and working.  Push up to GITHUB, then continue with the rest of Chap 15.
+- 2017/06/22 (GITHUB) - Merged Chap 15 branch to master.  Will continue work on the remainder of Chap 15.
+- 2017/06/23 (local) - Completed Chap 15.  Thus ends this course.  Push up to GITHUB.

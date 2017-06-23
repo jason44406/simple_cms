@@ -6,6 +6,7 @@ class AccessController < ApplicationController
 
   def menu
     #display text and links
+    @username = session[:username]
   end
 
   def login
@@ -27,6 +28,8 @@ class AccessController < ApplicationController
     # If we have an object in authorized_user, then it must not be false.  Do this...
     if authorized_user
       session[:user_id] = authorized_user.id
+      # Cache the username so it can be used thoughout the session without making another DB call.
+      session[:username] = authorized_user.username
       flash[:notice] = "You have successfully logged in."
       redirect_to(admin_path)
 
@@ -40,6 +43,8 @@ class AccessController < ApplicationController
 
   def logout
     session[:user_id] = nil
+    # Clear out cached value of username:
+    session[:username] = nil
     flash[:notice] = "Logged out.  Thank you for visiting."
     redirect_to(access_login_path)
   end

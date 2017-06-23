@@ -16,14 +16,18 @@
   <tr>
     <th>Type</th>
       <td>
-        <%= f.radio_button(:content_type, 'text') %> Text
+        <%= f.radio_button(:content_type, 'Text') %> Text
         <%= f.radio_button(:content_type, 'HTML') %> HTML
       </td>
   </tr>
   <tr>
-    <th>Page ID</th>
-    <td><%= f.select(:page_id, @pages.map {|p| [p.name, p.id]}) %></td>
+    <th>Page ID (non-editible)</th>
+    <td><%= f.object.page.name %></td>
   </tr>
+<!--  <tr>
+    <th>Page ID</th>
+    <td><%# f.select(:page_id, @pages.map {|p| [p.name, p.id]}) %></td>
+  </tr> -->
   <tr>
     <th>Content</th>
     <td><%= f.text_area(:content, :size => '40x10') %></td>

@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
 
   # This is the action for the root route
-  root 'demo#index'
+  root 'public#index'
+
+  get 'public/index'
+  # rails doesnt know how to make this a route, so you can tell it with as
+  get 'show/:permalink', :to => 'public#show', :as => 'public_show'
 
   # Simple routes since there are no models, DB, etc. for this.
   get 'admin', :to => 'access#menu'
@@ -74,6 +78,7 @@ Rails.application.routes.draw do
     end
 
   end
+
 
   # simple match routes
   # match "demo/index", :to => "demo#index", :via => :get

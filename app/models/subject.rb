@@ -1,5 +1,7 @@
 class Subject < ApplicationRecord
 
+  acts_as_list
+
   # tell ActiveRecord to make a relationship btwn Subject and page
   # has_one :page
 
