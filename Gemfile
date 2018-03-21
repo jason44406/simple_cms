@@ -33,6 +33,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'acts_as_list'
 # nokogiri must be 1.8.1+ due to CVE-2017-9050 vulnerablity.
 gem 'nokogiri', '~> 1.8.1'
+# loofah must be 2.2.1+ due to CVE-2018-8048 vulnerablity.
+gem 'loofah', '~> 2.2.1'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

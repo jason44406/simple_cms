@@ -67,3 +67,4 @@ Change log:
 - 2017/06/21 (local) - Didn't pull down.  Going to experiment with this a little when there are more than one commits on a single branch.  Created the admin user index / new / edit / delete.  All tested and working.  Push up to GITHUB, then continue with the rest of Chap 15.
 - 2017/06/22 (GITHUB) - Merged Chap 15 branch to master.  Will continue work on the remainder of Chap 15.
 - 2017/06/23 (local) - Completed Chap 15.  Thus ends this course.  Push up to GITHUB.
+- 2018/03/21 - Updated gems due to vulnerabilities - loofah-CVE-2018-8048, Nokogiri-CVE-2017-9050 
