@@ -1,5 +1,7 @@
 # README
 
+This is the Rails 5 project.  I originally named it Lynda-Rails-5-Project, as it was part of the Ruby on Rails 5 Essential training.  
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
