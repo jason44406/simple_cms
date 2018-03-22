@@ -33,7 +33,7 @@ class AdminUser < ApplicationRecord
 # sexy validations
   validates :first_name, :presence => true, :length => { :maximum => 25 }
   validates :last_name, :presence => true, :length => { :maximum => 50 }
-  validates :username, :presence => true, :length => { :within => 8..25 }, :uniqueness => true
+  validates :username, :presence => true, :length => { :within => 5..25 }, :uniqueness => true
   validates :email, :presence => true, :length => { :maximum => 100 }, :format => EMAIL_REGEX, :confirmation => true
 
   validate :username_is_allowed

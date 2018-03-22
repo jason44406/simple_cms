@@ -4,8 +4,8 @@ class SectionsController < ApplicationController
 
   before_action :confirm_logged_in
   before_action :find_page
-#  before_action :find_page_subject
-#  before_action :find_pages, :only => [:new, :create, :edit, :update]
+  before_action :find_page_subject
+  before_action :find_pages, :only => [:new, :create, :edit, :update]
   before_action :set_section_count, :only => [:new, :create, :edit, :update]
 
   def index
@@ -18,8 +18,8 @@ class SectionsController < ApplicationController
 
   def new
     @section = Section.new(:page_id => @page.id)
-  #  @section_count = Section.count + 1
-  #  @pages = Page.sorted
+    @section_count = Section.count + 1
+    @pages = Page.sorted
   end
 
   def create
@@ -30,8 +30,8 @@ class SectionsController < ApplicationController
       redirect_to(sections_path(:page_id => @page.id))
     else
       flash[:error] = "Section not created!"
-    #  @section_count = Section.count + 1
-    #  @pages = Page.sorted
+      @section_count = Section.count + 1
+      @pages = Page.sorted
       render('new')
     end
   end
@@ -39,7 +39,7 @@ class SectionsController < ApplicationController
   def edit
     @section = Section.find(params[:id])
     @section_count = Section.count
-  #  @pages = Page.sorted
+    @pages = Page.sorted
   end
 
   def update
@@ -50,7 +50,7 @@ class SectionsController < ApplicationController
     else
       flash[:error] = "Section not saved!"
       @section_count = Section.count
-  #    @pages = Page.sorted
+      @pages = Page.sorted
       render('edit')
     end
   end
@@ -80,13 +80,13 @@ class SectionsController < ApplicationController
     @page = Page.find(params[:page_id])
   end
 
-#  def find_page_subject
-#    @subject = Subject.find(params[:page_id])
-#  end
+  def find_page_subject
+    @subject = Subject.find(params[:page_id])
+  end
 
-#  def find_pages
-#    @pages = Page.sorted
-#  end
+  def find_pages
+    @pages = Page.sorted
+  end
 
   def set_section_count
     @section_count = @page.sections.count
