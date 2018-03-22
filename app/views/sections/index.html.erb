@@ -1,0 +1,41 @@
+<% @page_title = "All Sections" %>
+
+<%= link_to("<<Back to Pages", pages_path, :class => 'back-link') %>
+
+<!-- label controller and action-->
+<div class="sections index">
+  <h2>Sections</h2>
+
+<!--  <%= link_to("Add New Page", 'page/new', :class => 'action new') %> -->
+  <p></i><%= link_to("Pages can only be added from the index_by_subject view", subjects_path) %> </i></p>
+
+  <table class="listing" summary="Section list">
+    <!-- This assigns the header row -->
+    <tr class="header">
+      <th>#</th>
+      <th>Section</th>
+      <th>Type</th>
+      <th>Visible</th>
+<!--  <th>Page ID</th>  -->
+      <th>Actions</th>
+    </tr>
+    <!-- This each method will will go through every element in the array and assign it to the local block value |page|. -->
+    <% @sections.each do |section| %>
+    <tr> <!-- Table row -->
+      <td><%= section.position %></td> <!-- Table data -->
+      <td><%= section.name %></td>
+      <td><%= section.content_type %></td>
+      <td class="center"><%= status_tag(section.visible) %></td>
+<!--  <td class="center">< link_to("#{section.page_id}", {:controller => 'pages', :action => 'show', :id => section.page_id}, :class => 'action show') %> </td> -->
+      <td class="actions">
+        <%= link_to("Show", section_path(section, :page_id => section.page_id), :class => 'action show') %>
+        <%= link_to("Edit", edit_section_path(section, :page_id => section.page_id), :class => 'action edit') %>
+        <%= link_to("Delete", delete_section_path(section, :page_id => section.page_id), :class => 'action delete') %>
+      </td>
+    </tr>
+
+    <% end %>
+  </table>
+</div>
+
+<p><i>Find me in app/views/sections/index.html.erb</i></p>

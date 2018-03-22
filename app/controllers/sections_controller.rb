@@ -3,10 +3,14 @@ class SectionsController < ApplicationController
   layout 'admin'
 
   before_action :confirm_logged_in
-  before_action :find_page
-  before_action :find_page_subject
+  before_action :find_page, :except => :index
+  before_action :find_page_subject, :except => :index
   before_action :find_pages, :only => [:new, :create, :edit, :update]
   before_action :set_section_count, :only => [:new, :create, :edit, :update]
+
+  def index
+    @sections =Section.sorted
+  end
 
   def index_by_page
     @sections = @page.sections.sorted
