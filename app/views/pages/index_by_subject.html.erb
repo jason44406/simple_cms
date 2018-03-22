@@ -7,7 +7,7 @@
   <h2>Pages</h2>
 
 <!--  <%= link_to("Add New Page", 'page/new', :class => 'action new') %> -->
-  <p></i><%= link_to("Pages can only be added from the index_by_subject view", subjects_path) %> </i></p>
+  <%= link_to("Add New Page", new_page_path(:subject_id => @subject.id), :class => 'action new') %>
 
   <table class="listing" summary="Page list">
     <!-- This assigns the header row -->
@@ -31,9 +31,9 @@
       <td class="center"><%= page.sections.size %></td>
       <td class="actions">
         <%= link_to("View Sections", index_by_page_sections_path(:page_id => page.id), :class => 'action index_by_page') %>
-        <%= link_to("Show", page_path(page, :subject_id => page.subject_id), :class => 'action show') %>
-        <%= link_to("Edit", edit_page_path(page, :subject_id => page.subject_id), :class => 'action edit') %>
-        <%= link_to("Delete", delete_page_path(page, :subject_id => page.subject_id), :class => 'action delete') %>
+        <%= link_to("Show", page_path(page, :subject_id => @subject.id), :class => 'action show') %>
+        <%= link_to("Edit", edit_page_path(page, :subject_id => @subject.id), :class => 'action edit') %>
+        <%= link_to("Delete", delete_page_path(page, :subject_id => @subject.id), :class => 'action delete') %>
       </td>
     </tr>
 

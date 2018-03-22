@@ -3,12 +3,15 @@ class PagesController < ApplicationController
   layout 'admin'
 
   before_action :confirm_logged_in
-  before_action :find_subject
+  before_action :find_subject, :except => :index
 #  before_action :find_subjects, :only => [:new, :create, :edit, :update]
   before_action :set_page_count, :only => [:new, :create, :edit, :update]
 
-
   def index
+    @pages = Page.sorted
+  end
+
+  def index_by_subject
     @pages = @subject.pages.sorted
   end
 
@@ -27,7 +30,7 @@ class PagesController < ApplicationController
     @page.subject_id = @subject.id
     if @page.save
       flash[:notice] = "Page '#{@page.name}' created successfully!"
-      redirect_to(pages_path(:subject_id => @subject.id))
+      redirect_to(index_by_subject_pages_path(:subject_id => @subject.id))
     else
       flash[:error] = "Page not created!"
   #    @page_count = Page.count + 1
@@ -46,7 +49,7 @@ class PagesController < ApplicationController
     @page = Page.find(params[:id])
     if @page.update_attributes(page_params)
       flash[:notice] = "Page '#{@page.name}' updated successfully!"
-      redirect_to(page_path(@page, :subject => @subject.id))
+      redirect_to(page_path(@page, :subject_id => @subject.id))
     else
       flash[:error] = "Page not saved!"
     #  @page_count = Page.count
@@ -77,7 +80,7 @@ class PagesController < ApplicationController
   end
 
   def find_subject
-    @subject = Subject.find(params[:subject_id])
+    @subject = Subject.find(params[:subject_id]) || {}
   end
 
 #  def find_subjects
