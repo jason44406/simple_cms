@@ -45,6 +45,10 @@ Rails.application.routes.draw do
       get :delete
     end
 
+    collection do
+      get :index_by_subject
+    end
+
   end
 
 # ~~~> Section Routes <~~~
@@ -58,6 +62,10 @@ Rails.application.routes.draw do
 
     member do
       get :delete
+    end
+
+    collection do
+      get :index_by_page
     end
 
   end

@@ -8,7 +8,7 @@ class SectionsController < ApplicationController
   before_action :find_pages, :only => [:new, :create, :edit, :update]
   before_action :set_section_count, :only => [:new, :create, :edit, :update]
 
-  def index
+  def index_by_page
     @sections = @page.sections.sorted
   end
 
@@ -27,7 +27,7 @@ class SectionsController < ApplicationController
     @section.page_id = @page.id
     if @section.save
       flash[:notice] = "Section '#{@section.name}' created successfully!"
-      redirect_to(sections_path(:page_id => @page.id))
+      redirect_to(index_by_page_sections_path(:page_id => @page.id))
     else
       flash[:error] = "Section not created!"
       @section_count = Section.count + 1
