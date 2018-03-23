@@ -1,5 +1,7 @@
 # README
 
+This is the Rails 5 project.  I originally named it Lynda-Rails-5-Project, as it was part of the Ruby on Rails 5 Essential training.  
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
@@ -65,3 +67,9 @@ Change log:
 - 2017/06/21 (local) - Didn't pull down.  Going to experiment with this a little when there are more than one commits on a single branch.  Created the admin user index / new / edit / delete.  All tested and working.  Push up to GITHUB, then continue with the rest of Chap 15.
 - 2017/06/22 (GITHUB) - Merged Chap 15 branch to master.  Will continue work on the remainder of Chap 15.
 - 2017/06/23 (local) - Completed Chap 15.  Thus ends this course.  Push up to GITHUB.
+------------------------------------------------------------------
+NOTE that everything after this point is my own and not involved in the lessons.
+------------------------------------------------------------------
+- 2018/03/21 - Updated gems due to vulnerabilities - loofah-CVE-2018-8048, Nokogiri-CVE-2017-9050
+- 2018/03/21 - Added the pry and ap gems.  Changed the footer to visually divide the admin stuff from non-admin stuff.
+- 2018/03/22 - *** The app relationships are as such.  Subject --> Page --> Section.  Each is a one to many relationship.  The Page and Section indexes only showed Pages for a single Subject, or Sections for a single Page.  Updated the method names to reflect this better, and added a more inclusive index page of all Pages and all Subjects.  

@@ -31,6 +31,10 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 
 gem 'acts_as_list'
+# nokogiri must be 1.8.1+ due to CVE-2017-9050 vulnerablity.
+gem 'nokogiri', '~> 1.8.1'
+# loofah must be 2.2.1+ due to CVE-2018-8048 vulnerablity.
+gem 'loofah', '~> 2.2.1'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -47,6 +51,8 @@ group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'pry'
+  gem 'awesome_print'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
