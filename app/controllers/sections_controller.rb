@@ -4,9 +4,11 @@ class SectionsController < ApplicationController
 
   before_action :confirm_logged_in
   before_action :find_page, :except => :index
-  before_action :find_page_subject, :except => :index
+  before_action :find_page_subject, :except => [:index, :destroy]
   before_action :find_pages, :only => [:new, :create, :edit, :update]
   before_action :set_section_count, :only => [:new, :create, :edit, :update]
+  before_action :build_audit_message, :only => [:destroy]
+  after_action :build_audit_message, :only => [:create, :update]
 
   def index
     @sections =Section.sorted
@@ -81,11 +83,12 @@ class SectionsController < ApplicationController
   end
 
   def find_page
-    @page = Page.find(params[:page_id])
+    binding.pry
+    @page = Page.find(params[:page_id]) || {}
   end
 
   def find_page_subject
-    @subject = Subject.find(params[:page_id])
+    @subject = @page.subject # Subject.find(params[:page_id]) || {}
   end
 
   def find_pages
@@ -97,6 +100,11 @@ class SectionsController < ApplicationController
     if params[:action] == 'new' || params[:action] =='create'
       @section_count = Section.count + 1
     end
+  end
+
+  def build_audit_message
+    @section ||= @section = Section.find(params[:id])
+    @section.write_audit_log("#{session[:username]} performed action #{action_name} on #{controller_name} id ##{@section.id}, #{@section.name}")
   end
 
 end

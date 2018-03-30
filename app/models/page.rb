@@ -1,5 +1,7 @@
 class Page < ApplicationRecord
 
+  include Audit
+
   acts_as_list :scope => :subject
 
   belongs_to :subject

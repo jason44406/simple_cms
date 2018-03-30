@@ -1,9 +1,11 @@
 class SubjectsController < ApplicationController
 
   layout 'admin'
-  
+
   before_action :confirm_logged_in
   before_action :set_subject_count, :only => [:new, :create, :edit, :update]
+  before_action :build_audit_message, :only => [:destroy]
+  after_action :build_audit_message, :only => [:create, :update]
 
   def index
   #  logger.debug("***** Testing the logger from the Subject index. *****")
@@ -86,6 +88,11 @@ class SubjectsController < ApplicationController
     if params[:action] == 'new' || params[:action] =='create'
       @subject_count = Subject.count + 1
     end
+  end
+
+  def build_audit_message
+    @subject ||= @subject = Subject.find(params[:id])
+    @subject.write_audit_log("#{session[:username]} performed action #{action_name} on #{controller_name} id ##{@subject.id}, #{@subject.name}")
   end
 
 end
