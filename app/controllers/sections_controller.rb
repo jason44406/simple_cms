@@ -3,7 +3,7 @@ class SectionsController < ApplicationController
   layout 'admin'
 
   before_action :confirm_logged_in
-  before_action :find_page, :except => :index
+  before_action :find_page, :except => [:index]
   before_action :find_page_subject, :except => [:index, :destroy]
   before_action :find_pages, :only => [:new, :create, :edit, :update]
   before_action :set_section_count, :only => [:new, :create, :edit, :update]
@@ -11,7 +11,7 @@ class SectionsController < ApplicationController
   after_action :build_audit_message, :only => [:create, :update]
 
   def index
-    @sections =Section.sorted
+    @sections = Section.sorted
   end
 
   def index_by_page
@@ -67,8 +67,10 @@ class SectionsController < ApplicationController
 
   def destroy
     @section = Section.find(params[:id])
+    binging.pry
     if @section.destroy
       flash[:notice] = "Section '#{@section.name}' deleted successfully!"
+      binding.pry
       redirect_to(sections_path(:page_id => @page.id))
     else
       flash[:error] = "Section not deleted!"

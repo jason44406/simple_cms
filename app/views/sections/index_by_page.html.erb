@@ -30,7 +30,7 @@
       <td class="actions">
         <%= link_to("Show", section_path(section, :page_id => @page.id), :class => 'action show') %>
         <%= link_to("Edit", edit_section_path(section, :page_id => @page.id), :class => 'action edit') %>
-        <%= link_to("Delete", delete_section_path(section, :page_id => @page.id), :class => 'action delete') %>
+        <%= link_to("Delete", delete_section_path(section, :page_id => section.id), :class => 'action delete') %>
       </td>
     </tr>
 

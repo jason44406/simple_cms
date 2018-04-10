@@ -7,9 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 if Rails.env.development?
-  Subjects.delete_all
-  Pages.delete_all
-  Sections.delete_all
+  Subject.delete_all
+  Page.delete_all
+  Section.delete_all
   SectionEdit.delete_all
   AuditLog.delete_all
 
@@ -35,7 +35,7 @@ if Rails.env.development?
             :id => 3,
           :name => "Third Subject",
       :position => 3,
-       :visible => true,
+       :visible => false,
     :created_at => Time.now,
     :updated_at => Time.now
   )
@@ -43,9 +43,9 @@ if Rails.env.development?
   Page.create!(
             :id => 1,
           :name => "Subject 1 Page 1",
-     :permalink => "permalink",
+     :permalink => "permalink 1-1",
       :position => 1,
-       :visible => false,
+       :visible => true,
     :subject_id => 1,
     :created_at => Time.now,
     :updated_at => Time.now
@@ -54,9 +54,9 @@ if Rails.env.development?
   Page.create!(
             :id => 2,
           :name => "Subject 1 Page 2",
-     :permalink => "permalink",
+     :permalink => "permalink 1-2",
       :position => 2,
-       :visible => false,
+       :visible => true,
     :subject_id => 1,
     :created_at => Time.now,
     :updated_at => Time.now
@@ -65,7 +65,7 @@ if Rails.env.development?
   Page.create!(
             :id => 3,
           :name => "Subject 2 Page 1",
-     :permalink => "permalink",
+     :permalink => "permalink 2-1",
       :position => 1,
        :visible => false,
     :subject_id => 2,
@@ -76,7 +76,7 @@ if Rails.env.development?
   Page.create!(
             :id => 4,
           :name => "Subject 2 Page 1",
-     :permalink => "permalink",
+     :permalink => "permalink 2-2",
       :position => 2,
        :visible => false,
     :subject_id => 2,
@@ -87,7 +87,7 @@ if Rails.env.development?
   Page.create!(
             :id => 5,
           :name => "Subject 3 Page 1",
-     :permalink => "permalink",
+     :permalink => "permalink 3-1",
       :position => 1,
        :visible => false,
     :subject_id => 3,
@@ -107,7 +107,7 @@ if Rails.env.development?
     :updated_at => Time.now
   )
 
-    Section.create!(
+  Section.create!(
             :id => 2,
           :name => "Subject 1 Page 1 Section 2",
       :position => 2,
@@ -119,7 +119,7 @@ if Rails.env.development?
     :updated_at => Time.now
   )
 
-    Section.create!(
+  Section.create!(
             :id => 3,
           :name => "Subject 1 Page 1 Section 3",
       :position => 3,
@@ -131,28 +131,28 @@ if Rails.env.development?
     :updated_at => Time.now
   )
 
-    Section.create!(
+  Section.create!(
             :id => 4,
           :name => "Subject 1 Page 2 Section 1",
       :position => 1,
-       :visible => true,
+       :visible => false,
   :content_type => "Text",
        :content => "This is the section text",
        :page_id => 2,
     :created_at => Time.now,
     :updated_at => Time.now
-    )
+  )
 
-      Section.create!(
+  Section.create!(
             :id => 5,
           :name => "Subject 1 Page 2 Section 2",
       :position => 2,
-       :visible => true,
+       :visible => false,
   :content_type => "Text",
        :content => "This is the section text",
        :page_id => 2,
     :created_at => Time.now,
     :updated_at => Time.now
-    )
+  )
 
 end

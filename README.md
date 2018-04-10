@@ -72,4 +72,5 @@ NOTE that everything after this point is my own and not involved in the lessons.
 ------------------------------------------------------------------
 - 2018/03/21 - Updated gems due to vulnerabilities - loofah-CVE-2018-8048, Nokogiri-CVE-2017-9050
 - 2018/03/21 - Added the pry and ap gems.  Changed the footer to visually divide the admin stuff from non-admin stuff.
-- 2018/03/22 - *** The app relationships are as such.  Subject --> Page --> Section.  Each is a one to many relationship.  The Page and Section indexes only showed Pages for a single Subject, or Sections for a single Page.  Updated the method names to reflect this better, and added a more inclusive index page of all Pages and all Subjects.  
+- 2018/03/22 - *** The app relationships are as such.  Subject --> Page --> Section.  Each is a one to many relationship.  The Page and Section indexes only showed Pages for a single Subject, or Sections for a single Page.  Updated the method names to reflect this better, and added a more inclusive index page of all Pages and all Subjects.
+- 2018/04/10 - Added an audit log to record actions on objects.  Also updated the seeds file.  Still working on the section delete -- there's some kind of hiccup with the redirect after the destroy because it can't seem to look up the page.  Not sure why because the same methods in the pages controller seem to work fine.  
