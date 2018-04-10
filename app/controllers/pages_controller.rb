@@ -6,6 +6,8 @@ class PagesController < ApplicationController
   before_action :find_subject, :except => :index
 #  before_action :find_subjects, :only => [:new, :create, :edit, :update]
   before_action :set_page_count, :only => [:new, :create, :edit, :update]
+  before_action :build_audit_message, :only => [:destroy]
+  after_action :build_audit_message, :only => [:create, :update]
 
   def index
     @pages = Page.sorted
@@ -93,6 +95,11 @@ class PagesController < ApplicationController
     if params[:action] == 'new' || params[:action] =='create'
       @page_count = Page.count + 1
     end
+  end
+
+  def build_audit_message
+    @page ||= @page = Page.find(params[:id])
+    @page.write_audit_log("#{session[:username]} performed action #{action_name} on #{controller_name} id ##{@page.id}, #{@page.name}")
   end
 
 end

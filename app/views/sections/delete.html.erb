@@ -4,7 +4,7 @@
 <div class="sections delete">
   <h2>Delete Section</h2>
   <!-- Can leave the url out, but MUST specify action (delete in this case) -->
-  <%= form_for(@section, :ul => section_path(@section, :page_id => @page.id), :method => 'delete') do |f| %>
+  <%= form_for(@section, :ul => section_path(@section, :page_id => @section.page_id), :method => 'delete') do |f| %>
 
     <p> Are you SURE you want to permanently delete this section?</p>
 

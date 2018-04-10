@@ -1,5 +1,7 @@
 class Section < ApplicationRecord
 
+  include Audit
+
   acts_as_list :scope => :page
 
   belongs_to :page#, { :optional => true }

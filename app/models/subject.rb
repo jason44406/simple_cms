@@ -2,6 +2,8 @@ class Subject < ApplicationRecord
 
   acts_as_list
 
+  include Audit
+
   # tell ActiveRecord to make a relationship btwn Subject and page
   # has_one :page
 
@@ -20,5 +22,7 @@ class Subject < ApplicationRecord
 
   validates_presence_of :name
   validates_length_of :name, :maximum => 255
-
+  # validate no non-ascii characters.
+  # validates_format_of :name, :with => /\A([[:ascii:]])*\z/, :message => "contains non-ascii characters"
+  validates :name, format: { :with => /\A([[:ascii:]])*\z/, :message => "contains non-ascii characters" }
 end
