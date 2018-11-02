@@ -12,6 +12,7 @@ if Rails.env.development?
   Section.delete_all
   SectionEdit.delete_all
   AuditLog.delete_all
+  AdminUser.delete_all
 
   Subject.create!(
             :id => 1,
@@ -153,6 +154,14 @@ if Rails.env.development?
        :page_id => 2,
     :created_at => Time.now,
     :updated_at => Time.now
+  )
+
+  AdminUser.create!(
+    :first_name => "Jason",
+     :last_name => "C",
+         :email => "noneya@business.com",
+      :username => "Jason",
+      :password => "password1"
   )
 
 end
