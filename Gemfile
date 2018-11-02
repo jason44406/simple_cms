@@ -10,6 +10,7 @@ end
 gem 'rails', '~> 5.1.1'
 gem 'rails-html-sanitizer', '~> 1.0.4'
 gem "sprockets", ">= 3.7.2"
+gem "rubyzip", ">= 1.2.2"
 # Use mysql as the database for Active Record
 gem 'mysql2', '>= 0.3.18', '< 0.5'
 # Use Puma as the app server
